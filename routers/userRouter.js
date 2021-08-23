@@ -3,9 +3,13 @@ const User = require("../models/userModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+router.get("/users/:id/device", (req, res) => {
+    User.findById(req.params.id, (err, user) => res.status(200).send(JSON.stringify({ "device": user.device })));
+})
+
 router.post("/", async (req, res) => {
     try {
-        const { email, password, passwordVerify } = req.body;
+        const { email, password, passwordVerify, device } = req.body;
 
         // validation
 
@@ -42,6 +46,7 @@ router.post("/", async (req, res) => {
         const newUser = new User({
             email,
             passwordHash,
+            device,
         });
 
         const savedUser = await newUser.save();

@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(
     cors({
-        origin: ["http://localhost:3000", "https://testwebrtcfrontend1.netlify.app"],
+        origin: ["http://localhost:3000", "http://localhost:3001", "https://testwebrtcfrontend1.netlify.app", "http://localhost", "https://www.testwebrtc-demo.com", "http://localhost:8080", "http://172.20.10.4:8080"],
         credentials: true,
     })
 );

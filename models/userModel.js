@@ -4,6 +4,7 @@ const userSchema = new mongoose.Schema(
     {
         email: { type: String, required: true },
         passwordHash: { type: String, required: true },
+        device: { type: [String] }
     },
     {
         timestamps: true,
